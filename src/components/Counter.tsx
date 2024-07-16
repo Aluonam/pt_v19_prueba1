@@ -5,8 +5,10 @@ const Counter = () => {
     const [calculate, setCalculate] = useState<number>(0)
   return (
     <>
-    <button onClick={()=>{}}>+</button>
-    <button onClick={()=>{}}>-</button>
+    <h3>{calculate}</h3>
+    <br></br>
+    <button onClick={()=>{setCalculate(calculate+1)}}>+</button>
+    <button onClick={()=>{setCalculate(calculate-1)}}>-</button>
     </>
   )
 }
