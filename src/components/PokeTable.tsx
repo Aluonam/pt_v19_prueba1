@@ -1,5 +1,21 @@
+import { useState } from "react"
+
+
+type pokeTablePropstype = {
+    name:  string,
+    url: string
+}
+
 
 const PokeTable = () => {
+
+    const [dataPokemon, setDataPokemon] = useState<pokeTablePropstype>({
+        name: '',
+        url: '',
+    })
+
+
+
   return (
     <div>PokeTable
 
