@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 type pokeTablePropstype = {
@@ -13,6 +13,19 @@ const PokeTable = () => {
         name: '',
         url: '',
     })
+
+    useEffect(() => {
+      
+        
+        callPokemonData()
+    }, [])
+
+    const callPokemonData = async ()=>{
+            const callURL = await fetch(`https://pokeapi.co/api/v2/pokemon`);
+            const data =  await callURL.json()
+            console.log(data.results)
+            
+        }
 
 
 
