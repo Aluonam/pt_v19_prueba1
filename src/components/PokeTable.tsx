@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react"
 
 
-type pokeTablePropstype = {
-    name:  string,
+export interface pokePropstype {
+    name:  string;
     url: string
 }
 
-
 const PokeTable = () => {
 
-    const [dataPokemon, setDataPokemon] = useState<pokeTablePropstype>({
-        name: '',
-        url: '',
-    })
+    const [dataPokemon, setDataPokemon] = useState<pokePropstype[]>()
 
     useEffect(() => {
       
@@ -23,9 +19,18 @@ const PokeTable = () => {
     const callPokemonData = async ()=>{
             const callURL = await fetch(`https://pokeapi.co/api/v2/pokemon`);
             const data =  await callURL.json()
-            console.log(data.results)
-            
+            setDataPokemon(data.results)
         }
+
+    const handleShowData = dataPokemon?.map((onePokemon: pokePropstype)=>{
+
+        return(
+            <tr key={onePokemon.name}>
+                <td>{onePokemon.name}</td>
+                <td><a href="onePokemon.url">{onePokemon.url}</a></td>
+            </tr>
+        )
+    })
 
 
 
@@ -40,10 +45,7 @@ const PokeTable = () => {
                 </tr>
             </thead>
             <tbody>
-            <tr>
-                    <td>1</td>
-                    <td>2</td>
-                </tr>
+                {handleShowData}
             </tbody>
         </table>
     </div>
