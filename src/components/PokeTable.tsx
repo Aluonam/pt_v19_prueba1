@@ -40,8 +40,8 @@ const PokeTable = () => {
         <table>
             <thead>
                 <tr>
-                    <td>1</td>
-                    <td>2</td>
+                    <td>Pokemon</td>
+                    <td>URL</td>
                 </tr>
             </thead>
             <tbody>
