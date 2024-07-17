@@ -3,7 +3,7 @@
 const ReplaceSpace = () => {
   return (
     <>
-    <input></input>
+    <input placeholder="Write your sentence" onChange={(e)=>{console.log(e.target.value)}}></input>
     </>
   )
 }
